@@ -324,7 +324,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPicaportes";
             this.Text = "FormPicaportes";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPicaportes_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPicaportes)).EndInit();

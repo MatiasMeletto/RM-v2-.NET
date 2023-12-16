@@ -8,6 +8,7 @@ namespace RM_v2.Objects
 {
     public class Accesorio
     {
+        public int AccesorioId { get; set; }
         public string _codigo;
         public string Codigo { get => _codigo; set => _codigo = value.ToUpper(); }
         public string Nombre { get; set; }
@@ -15,15 +16,5 @@ namespace RM_v2.Objects
         public int CantidadBolsas { get; set; }
         public string Descripcion { get; set; }
         public EnumCategorias Categoria { get; set; } 
-
-        public Accesorio(string codigo, string nombre, int cantidadSuelta, int cantidadBolsas, string descripcion, EnumCategorias categoria)
-        {
-            Codigo = codigo;
-            Nombre = nombre;
-            CantidadSuelta = cantidadSuelta;
-            CantidadBolsas = cantidadBolsas;
-            Descripcion = descripcion;
-            Categoria = categoria;
-        }
     }
 }

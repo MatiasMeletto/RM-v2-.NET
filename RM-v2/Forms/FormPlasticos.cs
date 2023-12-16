@@ -42,15 +42,15 @@ namespace RM_v2.Forms
             }
             if (!editando)
             {
-                Accesorio acc = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Plastico);
-                accesorios.Add(acc);
-                ActualizarGrilla();
+                //Accesorio acc = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Plastico);
+                //accesorios.Add(acc);
+                //ActualizarGrilla();
             }
             else if (editando)
             {
-                Accesorio m = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Plastico);
-                accesorios[indice] = m;
-                btnAgregar.Text = "Agregar";
+                //Accesorio m = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Plastico);
+                //accesorios[indice] = m;
+                //btnAgregar.Text = "Agregar";
             }
 
             accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Plastico).ToList();
