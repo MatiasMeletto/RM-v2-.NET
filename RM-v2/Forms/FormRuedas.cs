@@ -1,4 +1,5 @@
-﻿using RM_v2.Objects;
+﻿using RM_v2.Data.Models;
+using RM_v2.Objects;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,15 +14,19 @@ namespace RM_v2.Forms
 {
     public partial class FormRuedas : Form
     {
-        List<Accesorio> accesorios = new List<Accesorio>();
-        List<Accesorio> accesoriosGrid = new List<Accesorio>();
+        Accesorio[]? accesorios;
         int indice = -1;
         bool editando = false;
 
         private void ActualizarGrilla()
         {
-            dataGridViewRuedas.DataSource = null;
-            dataGridViewRuedas.DataSource = accesoriosGrid;
+            using var _dbContext = new StockingDbContext();
+            accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToArray();
+            if (accesorios is not null)
+            {
+                dataGridViewRuedas.DataSource = null;
+                dataGridViewRuedas.DataSource = accesorios;
+            }
         }
         private void LimpiarCampos()
         {
@@ -34,13 +39,12 @@ namespace RM_v2.Forms
         public FormRuedas()
         {
             InitializeComponent();
-            accesorios = ModuloForms.LeerArchivo();
-            accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
             ActualizarGrilla();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
+
             List<string> Errores = ModuloForms.ValidarDatos(textBoxCodigo.Text, textBoxNombre.Text, textBoxDescripcion.Text, numericBolsas.Value, numericSuletos.Value);
             if (Errores.Count != 0)
             {
@@ -48,29 +52,53 @@ namespace RM_v2.Forms
                     MessageBox.Show(E);
                 return;
             }
-            if (!editando)
+            else
             {
-                //Accesorio acc = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Rueda);
-                //accesorios.Add(acc);
-                //ActualizarGrilla();
+                using var _dbContext = new StockingDbContext();
+
+                if (accesorios is not null)
+                {
+                    foreach (Accesorio a in accesorios)
+                    {
+                        if (a.Codigo == textBoxCodigo.Text.ToUpper())
+                        {
+                            MessageBox.Show("El codigo ya existe");
+                            return;
+                        }
+                    }
+                    if (!editando)
+                    {
+                        Accesorio accesorio = new Accesorio()
+                        {
+                            Codigo = textBoxCodigo.Text,
+                            Nombre = textBoxNombre.Text,
+                            CantidadBolsas = Convert.ToInt16(numericBolsas.Value),
+                            CantidadSuelta = Convert.ToInt16(numericSuletos.Value),
+                            Descripcion = textBoxDescripcion.Text,
+                            Categoria = EnumCategorias.Rueda,
+                        };
+                        _dbContext.accesorios.Add(accesorio);
+                        _dbContext.SaveChanges();
+                    }
+                    else if (editando)
+                    {
+                        Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == textBoxCodigo.Text.ToUpper()).SingleOrDefault();
+
+                        if (acc != null)
+                        {
+                            acc.Nombre = textBoxNombre.Text;
+                            acc.Descripcion = textBoxDescripcion.Text;
+                            acc.Codigo = textBoxCodigo.Text;
+                            acc.CantidadBolsas = Convert.ToInt16(numericBolsas.Value);
+                            acc.CantidadSuelta = Convert.ToInt16(numericSuletos.Value);
+                        }
+                        _dbContext.SaveChanges();
+                    }
+                    LimpiarCampos();
+                    ActualizarGrilla();
+                }
             }
-            else if (editando)
-            {
-                //Accesorio m = new Accesorio(textBoxCodigo.Text, textBoxNombre.Text, Convert.ToInt16(numericSuletos.Value), Convert.ToInt16(numericBolsas.Value), textBoxDescripcion.Text, EnumCategorias.Rueda);
-                //accesorios[indice] = m;
-                //btnAgregar.Text = "Agregar";
-            }
-
-            accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
-            LimpiarCampos();
-            ActualizarGrilla();
         }
-
-        private void FormRuedas_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            ModuloForms.EscribirLista(accesorios);
-        }
-
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarCampos();
@@ -80,50 +108,72 @@ namespace RM_v2.Forms
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (dataGridViewRuedas.SelectedRows.Count != 1)
-            {
-                MessageBox.Show("Debe seleccionar un elemento");
-            }
+            using var _dbContext = new StockingDbContext();
 
-            else if (MessageBox.Show("¿Seguro que quiere eliminar a este elemento?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (accesorios is not null)
             {
-                accesorios.Remove(accesorios.Where(a => a.Codigo == dataGridViewRuedas.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault());
-                accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
-                LimpiarCampos();
-                ActualizarGrilla();
+                Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == dataGridViewRuedas.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault();
+                if (acc is not null)
+                {
+                    if (dataGridViewRuedas.SelectedRows.Count != 1)
+                    {
+                        MessageBox.Show("Debe seleccionar un elemento");
+                    }
+
+                    else if (MessageBox.Show("¿Seguro que quiere eliminar a este elemento?", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    {
+                        _dbContext.accesorios.Remove(acc);
+                        _dbContext.SaveChanges();
+                        LimpiarCampos();
+                        ActualizarGrilla();
+                    }
+                }
             }
         }
 
         private void dataGridViewRuedas_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            editando = true;
-            indice = accesorios.IndexOf(accesorios.Where(a => a.Codigo == dataGridViewRuedas.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault());
-            accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
-            textBoxCodigo.Text = accesorios[indice].Codigo;
-            textBoxDescripcion.Text = accesorios[indice].Descripcion;
-            textBoxNombre.Text = accesorios[indice].Nombre;
-            numericBolsas.Value = accesorios[indice].CantidadBolsas;
-            numericSuletos.Value = accesorios[indice].CantidadSuelta;
-            btnAgregar.Text = "Actualizar";
+            if (accesorios is not null)
+            {
+                editando = true;
+                indice = dataGridViewRuedas.SelectedRows[0].Index;
+                textBoxCodigo.Text = accesorios[indice].Codigo;
+                textBoxDescripcion.Text = accesorios[indice].Descripcion;
+                textBoxNombre.Text = accesorios[indice].Nombre;
+                numericBolsas.Value = accesorios[indice].CantidadBolsas;
+                numericSuletos.Value = accesorios[indice].CantidadSuelta;
+                btnAgregar.Text = "Actualizar";
+            }
+
         }
 
         private void textBoxBuscar_TextChanged(object sender, EventArgs e)
         {
+            using var _dbContext = new StockingDbContext();
             int n;
             if (string.IsNullOrWhiteSpace(textBoxBuscar.Text.Trim()))
             {
-                accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
+                ActualizarGrilla();
             }
             else if (int.TryParse(textBoxBuscar.Text.Trim(), out n))
             {
-                accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n).ToList();
+                accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n).ToArray();
+                if (accesorios is not null)
+                {
+                    dataGridViewRuedas.DataSource = null;
+                    dataGridViewRuedas.DataSource = accesorios;
+                }
 
             }
             else
             {
-                accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim())).ToList();
+                accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim())).ToArray();
+                if (accesorios is not null)
+                {
+                    dataGridViewRuedas.DataSource = null;
+                    dataGridViewRuedas.DataSource = accesorios;
+                }
             }
-            ActualizarGrilla();
         }
 
         private void textBoxBuscar_Enter(object sender, EventArgs e)
@@ -142,13 +192,7 @@ namespace RM_v2.Forms
                 textBoxBuscar.Text = "Buscar...";
                 textBoxBuscar.ForeColor = Color.Silver;
             }
-            accesoriosGrid = accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToList();
             ActualizarGrilla();
-        }
-
-        private void textBoxBuscar_TextChanged_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
