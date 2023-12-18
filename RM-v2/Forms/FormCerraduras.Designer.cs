@@ -324,7 +324,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormCerraduras";
             this.Text = "FormCerraduras";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormCerraduras_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCerradura)).EndInit();

@@ -17,6 +17,7 @@ namespace RM_v2.Forms
         Accesorio[]? accesorios;
         int indice = -1;
         bool editando = false;
+        string codigoEditado;
 
         private void ActualizarGrilla()
         {
@@ -30,6 +31,7 @@ namespace RM_v2.Forms
         }
         private void LimpiarCampos()
         {
+            codigoEditado = string.Empty;
             textBoxCodigo.Text = string.Empty;
             textBoxNombre.Text = string.Empty;
             textBoxDescripcion.Text = string.Empty;
@@ -58,16 +60,16 @@ namespace RM_v2.Forms
 
                 if (accesorios is not null)
                 {
-                    foreach (Accesorio a in accesorios)
-                    {
-                        if (a.Codigo == textBoxCodigo.Text.ToUpper())
-                        {
-                            MessageBox.Show("El codigo ya existe");
-                            return;
-                        }
-                    }
                     if (!editando)
                     {
+                        foreach (Accesorio a in accesorios)
+                        {
+                            if (a.Codigo == textBoxCodigo.Text.ToUpper())
+                            {
+                                MessageBox.Show("El codigo ya existe");
+                                return;
+                            }
+                        }
                         Accesorio accesorio = new Accesorio()
                         {
                             Codigo = textBoxCodigo.Text,
@@ -82,7 +84,15 @@ namespace RM_v2.Forms
                     }
                     else if (editando)
                     {
-                        Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == textBoxCodigo.Text.ToUpper()).SingleOrDefault();
+                        foreach (Accesorio a in accesorios)
+                        {
+                            if (a.Codigo == textBoxCodigo.Text.ToUpper() && textBoxCodigo.Text.ToUpper() != codigoEditado)
+                            {
+                                MessageBox.Show("El codigo ya existe");
+                                return;
+                            }
+                        }
+                        Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == codigoEditado).SingleOrDefault();
 
                         if (acc != null)
                         {
@@ -131,7 +141,7 @@ namespace RM_v2.Forms
             }
         }
 
-        private void dataGridViewOtros_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewOtro_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (accesorios is not null)
             {
@@ -143,6 +153,7 @@ namespace RM_v2.Forms
                 numericBolsas.Value = accesorios[indice].CantidadBolsas;
                 numericSuletos.Value = accesorios[indice].CantidadSuelta;
                 btnAgregar.Text = "Actualizar";
+                codigoEditado = accesorios[indice].Codigo;
             }
 
         }

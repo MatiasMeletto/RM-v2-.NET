@@ -321,7 +321,6 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "FormRuedas";
             Text = "FormRuedas";
-            FormClosing += FormRuedas_FormClosing;
             ((System.ComponentModel.ISupportInitialize)numericSuletos).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericBolsas).EndInit();
             panelGrid.ResumeLayout(false);

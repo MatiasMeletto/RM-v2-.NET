@@ -324,7 +324,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormOtros";
             this.Text = "FormOtros";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormOtros_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOtro)).EndInit();

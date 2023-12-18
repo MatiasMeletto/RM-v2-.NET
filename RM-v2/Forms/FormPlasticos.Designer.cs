@@ -83,7 +83,7 @@
             this.textBoxBuscar.Size = new System.Drawing.Size(441, 34);
             this.textBoxBuscar.TabIndex = 21;
             this.textBoxBuscar.Text = "Buscar...";
-            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
             this.textBoxBuscar.Enter += new System.EventHandler(this.textBoxBuscar_Enter);
             this.textBoxBuscar.Leave += new System.EventHandler(this.textBoxBuscar_Leave);
             // 
@@ -331,7 +331,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormPlasticos";
             this.Text = "FormPlasticos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormPlasticos_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPlasticos)).EndInit();

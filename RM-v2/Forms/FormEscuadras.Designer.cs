@@ -325,7 +325,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormEscuadras";
             this.Text = "FormEscuadras";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormEscuadras_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscuadras)).EndInit();

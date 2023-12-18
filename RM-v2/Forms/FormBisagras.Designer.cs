@@ -324,7 +324,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FormBisagras";
             this.Text = "FormBisagras";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormBisagras_FormClosing);
             this.panelGrid.ResumeLayout(false);
             this.panelGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewBisagras)).EndInit();
