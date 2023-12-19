@@ -1,14 +1,7 @@
-﻿using RM_v2.Data.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using RM_v2.Data.Models;
 using RM_v2.Objects;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RM_v2.Forms
 {
@@ -19,10 +12,10 @@ namespace RM_v2.Forms
         bool editando = false;
         string codigoEditado;
 
-        private void ActualizarGrilla()
+        private async void ActualizarGrilla()
         {
             using var _dbContext = new StockingDbContext();
-            accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToArray();
+            accesorios = await _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Rueda).ToArrayAsync();
             if (accesorios is not null)
             {
                 dataGridViewRuedas.DataSource = null;
@@ -37,11 +30,16 @@ namespace RM_v2.Forms
             textBoxDescripcion.Text = string.Empty;
             numericBolsas.Value = 0;
             numericSuletos.Value = 0;
+            indice = -1;
         }
         public FormRuedas()
         {
             InitializeComponent();
-            ActualizarGrilla();
+            CheckForIllegalCrossThreadCalls = false;
+            Task.Run(() =>
+            {
+                ActualizarGrilla();
+            });
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -120,7 +118,7 @@ namespace RM_v2.Forms
         {
             using var _dbContext = new StockingDbContext();
 
-            if (accesorios is not null)
+            if (accesorios is not null && indice != -1)
             {
                 Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == dataGridViewRuedas.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault();
                 if (acc is not null)

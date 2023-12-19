@@ -28,337 +28,331 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panelGrid = new System.Windows.Forms.Panel();
-            this.textBoxBuscar = new System.Windows.Forms.TextBox();
-            this.dataGridViewEscuadras = new System.Windows.Forms.DataGridView();
-            this.codigoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadSueltaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidadBolsasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.accesorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.numericSuletos = new System.Windows.Forms.NumericUpDown();
-            this.numericBolsas = new System.Windows.Forms.NumericUpDown();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBoxDescripcion = new System.Windows.Forms.TextBox();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
-            this.textBoxCodigo = new System.Windows.Forms.TextBox();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.panelGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscuadras)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accesorioBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSuletos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBolsas)).BeginInit();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            panelGrid = new Panel();
+            textBoxBuscar = new TextBox();
+            dataGridViewEscuadras = new DataGridView();
+            codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cantidadSueltaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            cantidadBolsasDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            descripcionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            accesorioBindingSource = new BindingSource(components);
+            label5 = new Label();
+            label4 = new Label();
+            numericSuletos = new NumericUpDown();
+            numericBolsas = new NumericUpDown();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            textBoxDescripcion = new TextBox();
+            textBoxNombre = new TextBox();
+            textBoxCodigo = new TextBox();
+            btnLimpiar = new Button();
+            btnEliminar = new Button();
+            btnAgregar = new Button();
+            panelGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEscuadras).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)accesorioBindingSource).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericSuletos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericBolsas).BeginInit();
+            SuspendLayout();
             // 
             // panelGrid
             // 
-            this.panelGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelGrid.Controls.Add(this.textBoxBuscar);
-            this.panelGrid.Controls.Add(this.dataGridViewEscuadras);
-            this.panelGrid.Location = new System.Drawing.Point(0, 390);
-            this.panelGrid.Name = "panelGrid";
-            this.panelGrid.Size = new System.Drawing.Size(1392, 463);
-            this.panelGrid.TabIndex = 30;
+            panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            panelGrid.Controls.Add(textBoxBuscar);
+            panelGrid.Controls.Add(dataGridViewEscuadras);
+            panelGrid.Location = new Point(0, 277);
+            panelGrid.Margin = new Padding(3, 4, 3, 4);
+            panelGrid.Name = "panelGrid";
+            panelGrid.Size = new Size(1089, 397);
+            panelGrid.TabIndex = 30;
             // 
             // textBoxBuscar
             // 
-            this.textBoxBuscar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxBuscar.ForeColor = System.Drawing.Color.Silver;
-            this.textBoxBuscar.Location = new System.Drawing.Point(56, 17);
-            this.textBoxBuscar.Name = "textBoxBuscar";
-            this.textBoxBuscar.Size = new System.Drawing.Size(441, 34);
-            this.textBoxBuscar.TabIndex = 27;
-            this.textBoxBuscar.Text = "Buscar...";
-            this.textBoxBuscar.TextChanged += new System.EventHandler(this.textBoxBuscar_TextChanged);
-            this.textBoxBuscar.Enter += new System.EventHandler(this.textBoxBuscar_Enter);
-            this.textBoxBuscar.Leave += new System.EventHandler(this.textBoxBuscar_Leave);
+            textBoxBuscar.BorderStyle = BorderStyle.FixedSingle;
+            textBoxBuscar.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxBuscar.ForeColor = Color.Silver;
+            textBoxBuscar.Location = new Point(52, 29);
+            textBoxBuscar.Margin = new Padding(3, 4, 3, 4);
+            textBoxBuscar.Name = "textBoxBuscar";
+            textBoxBuscar.Size = new Size(441, 34);
+            textBoxBuscar.TabIndex = 27;
+            textBoxBuscar.Text = "Buscar...";
+            textBoxBuscar.TextChanged += textBoxBuscar_TextChanged;
+            textBoxBuscar.Enter += textBoxBuscar_Enter;
+            textBoxBuscar.Leave += textBoxBuscar_Leave;
             // 
             // dataGridViewEscuadras
             // 
-            this.dataGridViewEscuadras.AllowUserToAddRows = false;
-            this.dataGridViewEscuadras.AllowUserToDeleteRows = false;
-            this.dataGridViewEscuadras.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dataGridViewEscuadras.AutoGenerateColumns = false;
-            this.dataGridViewEscuadras.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridViewEscuadras.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewEscuadras.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridViewEscuadras.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            this.dataGridViewEscuadras.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewEscuadras.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.codigoDataGridViewTextBoxColumn,
-            this.nombreDataGridViewTextBoxColumn,
-            this.cantidadSueltaDataGridViewTextBoxColumn,
-            this.cantidadBolsasDataGridViewTextBoxColumn,
-            this.descripcionDataGridViewTextBoxColumn});
-            this.dataGridViewEscuadras.DataSource = this.accesorioBindingSource;
-            this.dataGridViewEscuadras.Location = new System.Drawing.Point(56, 57);
-            this.dataGridViewEscuadras.Name = "dataGridViewEscuadras";
-            this.dataGridViewEscuadras.ReadOnly = true;
-            this.dataGridViewEscuadras.RowHeadersWidth = 51;
-            this.dataGridViewEscuadras.RowTemplate.Height = 24;
-            this.dataGridViewEscuadras.Size = new System.Drawing.Size(1283, 358);
-            this.dataGridViewEscuadras.TabIndex = 26;
-            this.dataGridViewEscuadras.RowHeaderMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridViewEscuadras_RowHeaderMouseDoubleClick);
+            dataGridViewEscuadras.AllowUserToAddRows = false;
+            dataGridViewEscuadras.AllowUserToDeleteRows = false;
+            dataGridViewEscuadras.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewEscuadras.AutoGenerateColumns = false;
+            dataGridViewEscuadras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewEscuadras.BackgroundColor = Color.White;
+            dataGridViewEscuadras.BorderStyle = BorderStyle.None;
+            dataGridViewEscuadras.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewEscuadras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewEscuadras.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, cantidadSueltaDataGridViewTextBoxColumn, cantidadBolsasDataGridViewTextBoxColumn, descripcionDataGridViewTextBoxColumn });
+            dataGridViewEscuadras.DataSource = accesorioBindingSource;
+            dataGridViewEscuadras.Location = new Point(52, 71);
+            dataGridViewEscuadras.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewEscuadras.Name = "dataGridViewEscuadras";
+            dataGridViewEscuadras.ReadOnly = true;
+            dataGridViewEscuadras.RowHeadersWidth = 51;
+            dataGridViewEscuadras.RowTemplate.Height = 24;
+            dataGridViewEscuadras.Size = new Size(984, 266);
+            dataGridViewEscuadras.TabIndex = 26;
+            dataGridViewEscuadras.RowHeaderMouseDoubleClick += dataGridViewEscuadras_RowHeaderMouseDoubleClick;
             // 
             // codigoDataGridViewTextBoxColumn
             // 
-            this.codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
-            this.codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
-            this.codigoDataGridViewTextBoxColumn.ReadOnly = true;
+            codigoDataGridViewTextBoxColumn.DataPropertyName = "Codigo";
+            codigoDataGridViewTextBoxColumn.HeaderText = "Codigo";
+            codigoDataGridViewTextBoxColumn.MinimumWidth = 6;
+            codigoDataGridViewTextBoxColumn.Name = "codigoDataGridViewTextBoxColumn";
+            codigoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nombreDataGridViewTextBoxColumn
             // 
-            this.nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
-            this.nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
-            this.nombreDataGridViewTextBoxColumn.ReadOnly = true;
+            nombreDataGridViewTextBoxColumn.DataPropertyName = "Nombre";
+            nombreDataGridViewTextBoxColumn.HeaderText = "Nombre";
+            nombreDataGridViewTextBoxColumn.MinimumWidth = 6;
+            nombreDataGridViewTextBoxColumn.Name = "nombreDataGridViewTextBoxColumn";
+            nombreDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cantidadSueltaDataGridViewTextBoxColumn
             // 
-            this.cantidadSueltaDataGridViewTextBoxColumn.DataPropertyName = "CantidadSuelta";
-            this.cantidadSueltaDataGridViewTextBoxColumn.HeaderText = "CantidadSuelta";
-            this.cantidadSueltaDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cantidadSueltaDataGridViewTextBoxColumn.Name = "cantidadSueltaDataGridViewTextBoxColumn";
-            this.cantidadSueltaDataGridViewTextBoxColumn.ReadOnly = true;
+            cantidadSueltaDataGridViewTextBoxColumn.DataPropertyName = "CantidadSuelta";
+            cantidadSueltaDataGridViewTextBoxColumn.HeaderText = "CantidadSuelta";
+            cantidadSueltaDataGridViewTextBoxColumn.MinimumWidth = 6;
+            cantidadSueltaDataGridViewTextBoxColumn.Name = "cantidadSueltaDataGridViewTextBoxColumn";
+            cantidadSueltaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // cantidadBolsasDataGridViewTextBoxColumn
             // 
-            this.cantidadBolsasDataGridViewTextBoxColumn.DataPropertyName = "CantidadBolsas";
-            this.cantidadBolsasDataGridViewTextBoxColumn.HeaderText = "CantidadBolsas";
-            this.cantidadBolsasDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.cantidadBolsasDataGridViewTextBoxColumn.Name = "cantidadBolsasDataGridViewTextBoxColumn";
-            this.cantidadBolsasDataGridViewTextBoxColumn.ReadOnly = true;
+            cantidadBolsasDataGridViewTextBoxColumn.DataPropertyName = "CantidadBolsas";
+            cantidadBolsasDataGridViewTextBoxColumn.HeaderText = "CantidadBolsas";
+            cantidadBolsasDataGridViewTextBoxColumn.MinimumWidth = 6;
+            cantidadBolsasDataGridViewTextBoxColumn.Name = "cantidadBolsasDataGridViewTextBoxColumn";
+            cantidadBolsasDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // descripcionDataGridViewTextBoxColumn
             // 
-            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
-            this.descripcionDataGridViewTextBoxColumn.MinimumWidth = 6;
-            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
-            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            descripcionDataGridViewTextBoxColumn.DataPropertyName = "Descripcion";
+            descripcionDataGridViewTextBoxColumn.HeaderText = "Descripcion";
+            descripcionDataGridViewTextBoxColumn.MinimumWidth = 6;
+            descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // accesorioBindingSource
             // 
-            this.accesorioBindingSource.DataSource = typeof(RM_v2.Objects.Accesorio);
+            accesorioBindingSource.DataSource = typeof(Objects.Accesorio);
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(1029, 29);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 19);
-            this.label5.TabIndex = 55;
-            this.label5.Text = "Cantidad suelta";
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(898, 43);
+            label5.Name = "label5";
+            label5.Size = new Size(121, 19);
+            label5.TabIndex = 43;
+            label5.Text = "Cantidad suelta";
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(1029, 121);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(124, 19);
-            this.label4.TabIndex = 54;
-            this.label4.Text = "Cantidad bolsas";
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(898, 110);
+            label4.Name = "label4";
+            label4.Size = new Size(124, 19);
+            label4.TabIndex = 42;
+            label4.Text = "Cantidad bolsas";
             // 
             // numericSuletos
             // 
-            this.numericSuletos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericSuletos.Font = new System.Drawing.Font("Microsoft JhengHei UI", 13F);
-            this.numericSuletos.Location = new System.Drawing.Point(1033, 51);
-            this.numericSuletos.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericSuletos.Name = "numericSuletos";
-            this.numericSuletos.Size = new System.Drawing.Size(306, 35);
-            this.numericSuletos.TabIndex = 53;
+            numericSuletos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericSuletos.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            numericSuletos.Location = new Point(898, 66);
+            numericSuletos.Margin = new Padding(3, 4, 3, 4);
+            numericSuletos.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericSuletos.Name = "numericSuletos";
+            numericSuletos.Size = new Size(141, 35);
+            numericSuletos.TabIndex = 41;
             // 
             // numericBolsas
             // 
-            this.numericBolsas.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.numericBolsas.Font = new System.Drawing.Font("Microsoft JhengHei UI", 13F);
-            this.numericBolsas.Location = new System.Drawing.Point(1033, 143);
-            this.numericBolsas.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-            this.numericBolsas.Name = "numericBolsas";
-            this.numericBolsas.Size = new System.Drawing.Size(306, 35);
-            this.numericBolsas.TabIndex = 52;
+            numericBolsas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericBolsas.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            numericBolsas.Location = new Point(898, 133);
+            numericBolsas.Margin = new Padding(3, 4, 3, 4);
+            numericBolsas.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericBolsas.Name = "numericBolsas";
+            numericBolsas.Size = new Size(138, 35);
+            numericBolsas.TabIndex = 40;
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label3.Location = new System.Drawing.Point(52, 122);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(96, 19);
-            this.label3.TabIndex = 51;
-            this.label3.Text = "Descripcion";
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(52, 109);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 19);
+            label3.TabIndex = 39;
+            label3.Text = "Descripcion";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(427, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(70, 19);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Nombre";
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Location = new Point(308, 39);
+            label2.Name = "label2";
+            label2.Size = new Size(70, 19);
+            label2.TabIndex = 38;
+            label2.Text = "Nombre";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(52, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(63, 19);
-            this.label1.TabIndex = 49;
-            this.label1.Text = "Codigo";
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(52, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 19);
+            label1.TabIndex = 37;
+            label1.Text = "Codigo";
             // 
             // textBoxDescripcion
             // 
-            this.textBoxDescripcion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxDescripcion.Location = new System.Drawing.Point(56, 144);
-            this.textBoxDescripcion.Multiline = true;
-            this.textBoxDescripcion.Name = "textBoxDescripcion";
-            this.textBoxDescripcion.Size = new System.Drawing.Size(718, 193);
-            this.textBoxDescripcion.TabIndex = 48;
+            textBoxDescripcion.BorderStyle = BorderStyle.FixedSingle;
+            textBoxDescripcion.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxDescripcion.Location = new Point(52, 132);
+            textBoxDescripcion.Margin = new Padding(3, 4, 3, 4);
+            textBoxDescripcion.Multiline = true;
+            textBoxDescripcion.Name = "textBoxDescripcion";
+            textBoxDescripcion.Size = new Size(512, 78);
+            textBoxDescripcion.TabIndex = 36;
             // 
             // textBoxNombre
             // 
-            this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNombre.Location = new System.Drawing.Point(431, 52);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(343, 34);
-            this.textBoxNombre.TabIndex = 47;
+            textBoxNombre.BorderStyle = BorderStyle.FixedSingle;
+            textBoxNombre.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxNombre.Location = new Point(308, 62);
+            textBoxNombre.Margin = new Padding(3, 4, 3, 4);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(256, 34);
+            textBoxNombre.TabIndex = 35;
             // 
             // textBoxCodigo
             // 
-            this.textBoxCodigo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBoxCodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxCodigo.Location = new System.Drawing.Point(56, 52);
-            this.textBoxCodigo.Name = "textBoxCodigo";
-            this.textBoxCodigo.Size = new System.Drawing.Size(343, 34);
-            this.textBoxCodigo.TabIndex = 46;
+            textBoxCodigo.BorderStyle = BorderStyle.FixedSingle;
+            textBoxCodigo.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxCodigo.Location = new Point(52, 62);
+            textBoxCodigo.Margin = new Padding(3, 4, 3, 4);
+            textBoxCodigo.Name = "textBoxCodigo";
+            textBoxCodigo.Size = new Size(250, 34);
+            textBoxCodigo.TabIndex = 34;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(56, 343);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(128, 41);
-            this.btnLimpiar.TabIndex = 45;
-            this.btnLimpiar.Text = "Limpiar ";
-            this.btnLimpiar.UseVisualStyleBackColor = true;
-            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            btnLimpiar.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnLimpiar.Location = new Point(52, 219);
+            btnLimpiar.Margin = new Padding(3, 4, 3, 4);
+            btnLimpiar.Name = "btnLimpiar";
+            btnLimpiar.Size = new Size(128, 50);
+            btnLimpiar.TabIndex = 33;
+            btnLimpiar.Text = "Limpiar ";
+            btnLimpiar.UseVisualStyleBackColor = true;
+            btnLimpiar.Click += btnLimpiar_Click;
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnEliminar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.Location = new System.Drawing.Point(1211, 343);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(128, 41);
-            this.btnEliminar.TabIndex = 44;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = true;
-            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
+            btnEliminar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnEliminar.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnEliminar.Location = new Point(908, 219);
+            btnEliminar.Margin = new Padding(3, 4, 3, 4);
+            btnEliminar.Name = "btnEliminar";
+            btnEliminar.Size = new Size(128, 51);
+            btnEliminar.TabIndex = 32;
+            btnEliminar.Text = "Eliminar";
+            btnEliminar.UseVisualStyleBackColor = true;
+            btnEliminar.Click += btnEliminar_Click;
             // 
             // btnAgregar
             // 
-            this.btnAgregar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAgregar.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAgregar.Location = new System.Drawing.Point(1077, 343);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(128, 41);
-            this.btnAgregar.TabIndex = 43;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = true;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            btnAgregar.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnAgregar.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAgregar.Location = new Point(774, 219);
+            btnAgregar.Margin = new Padding(3, 4, 3, 4);
+            btnAgregar.Name = "btnAgregar";
+            btnAgregar.Size = new Size(128, 51);
+            btnAgregar.TabIndex = 31;
+            btnAgregar.Text = "Agregar";
+            btnAgregar.UseVisualStyleBackColor = true;
+            btnAgregar.Click += btnAgregar_Click;
             // 
             // FormEscuadras
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.LightSteelBlue;
-            this.ClientSize = new System.Drawing.Size(1392, 853);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericSuletos);
-            this.Controls.Add(this.numericBolsas);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBoxDescripcion);
-            this.Controls.Add(this.textBoxNombre);
-            this.Controls.Add(this.textBoxCodigo);
-            this.Controls.Add(this.btnLimpiar);
-            this.Controls.Add(this.btnEliminar);
-            this.Controls.Add(this.btnAgregar);
-            this.Controls.Add(this.panelGrid);
-            this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FormEscuadras";
-            this.Text = "FormEscuadras";
-            this.panelGrid.ResumeLayout(false);
-            this.panelGrid.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEscuadras)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.accesorioBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericSuletos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericBolsas)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            AutoScroll = true;
+            BackColor = Color.LightSteelBlue;
+            ClientSize = new Size(1089, 673);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(numericSuletos);
+            Controls.Add(numericBolsas);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(textBoxDescripcion);
+            Controls.Add(textBoxNombre);
+            Controls.Add(textBoxCodigo);
+            Controls.Add(btnLimpiar);
+            Controls.Add(btnEliminar);
+            Controls.Add(btnAgregar);
+            Controls.Add(panelGrid);
+            ForeColor = SystemColors.ControlText;
+            FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
+            Name = "FormEscuadras";
+            Text = "FormEscuadras";
+            panelGrid.ResumeLayout(false);
+            panelGrid.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewEscuadras).EndInit();
+            ((System.ComponentModel.ISupportInitialize)accesorioBindingSource).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericSuletos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericBolsas).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private System.Windows.Forms.Panel panelGrid;
-        private System.Windows.Forms.TextBox textBoxBuscar;
-        private System.Windows.Forms.DataGridView dataGridViewEscuadras;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadSueltaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidadBolsasDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource accesorioBindingSource;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericSuletos;
-        private System.Windows.Forms.NumericUpDown numericBolsas;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBoxDescripcion;
-        private System.Windows.Forms.TextBox textBoxNombre;
-        private System.Windows.Forms.TextBox textBoxCodigo;
-        private System.Windows.Forms.Button btnLimpiar;
-        private System.Windows.Forms.Button btnEliminar;
-        private System.Windows.Forms.Button btnAgregar;
+        private Panel panelGrid;
+        private TextBox textBoxBuscar;
+        private DataGridView dataGridViewEscuadras;
+        private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cantidadSueltaDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn cantidadBolsasDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private BindingSource accesorioBindingSource;
+        private Label label5;
+        private Label label4;
+        private NumericUpDown numericSuletos;
+        private NumericUpDown numericBolsas;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private TextBox textBoxDescripcion;
+        private TextBox textBoxNombre;
+        private TextBox textBoxCodigo;
+        private Button btnLimpiar;
+        private Button btnEliminar;
+        private Button btnAgregar;
     }
 }
