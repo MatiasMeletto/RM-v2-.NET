@@ -245,7 +245,7 @@
             Controls.Add(panelSeleccion);
             Controls.Add(panel1);
             Margin = new Padding(3, 4, 3, 4);
-            MinimumSize = new Size(0, 570);
+            MinimumSize = new Size(960, 570);
             Name = "FormPrincipal";
             Text = "Stock";
             WindowState = FormWindowState.Maximized;
