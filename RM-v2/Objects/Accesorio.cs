@@ -14,6 +14,7 @@ namespace RM_v2.Objects
         public string? Nombre { get; set; }
         public int CantidadSuelta { get; set; }
         public int CantidadBolsas { get; set; }
+        public decimal Importe { get; set; }
         public string? Descripcion { get; set; }
         public int CategoriaId { get; set; }
         public Categoria? Categoria { get; set;}

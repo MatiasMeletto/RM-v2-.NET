@@ -32,7 +32,7 @@ namespace RM_v2.Forms
             List<Accesorio> lista = new List<Accesorio>();
             return lista;
         }
-        public static List<string> ValidarDatos(string codigo, string nombre, string descripcion, decimal bolsas, decimal sueltos)
+        public static List<string> ValidarDatos(string codigo, string nombre, string descripcion, decimal bolsas, decimal sueltos,decimal importe)
         {
             List<string> Errores = new List<string>();
 
@@ -41,6 +41,9 @@ namespace RM_v2.Forms
 
             if (string.IsNullOrEmpty(nombre))
                 Errores.Add("Debe ingresar un nombre");
+
+            if (importe == 0)
+                Errores.Add("Debe ingresar un importe");
 
             if (bolsas == 0 && sueltos == 0)
                 Errores.Add("Debe ingresar al menos una cantidad");

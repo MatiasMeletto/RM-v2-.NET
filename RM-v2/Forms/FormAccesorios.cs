@@ -31,6 +31,7 @@ namespace RM_v2.Forms
             textBoxDescripcion.Text = string.Empty;
             numericBolsas.Value = 0;
             numericSuletos.Value = 0;
+            numericImporte.Value = 0;
             indice = -1;
         }
         public FormAccesorios(Categoria categoria)
@@ -47,7 +48,7 @@ namespace RM_v2.Forms
         private async void btnAgregar_Click(object sender, EventArgs e)
         {
 
-            List<string> Errores = ModuloForms.ValidarDatos(textBoxCodigo.Text, textBoxNombre.Text, textBoxDescripcion.Text, numericBolsas.Value, numericSuletos.Value);
+            List<string> Errores = ModuloForms.ValidarDatos(textBoxCodigo.Text, textBoxNombre.Text, textBoxDescripcion.Text, numericBolsas.Value, numericSuletos.Value, numericImporte.Value);
             if (Errores.Count != 0)
             {
                 foreach (string E in Errores)
@@ -78,6 +79,7 @@ namespace RM_v2.Forms
                             CantidadSuelta = Convert.ToInt16(numericSuletos.Value),
                             Descripcion = textBoxDescripcion.Text,
                             CategoriaId = (await _dbContext.categorias.Where(c => c.Nombre == categoria.Nombre).SingleOrDefaultAsync()).CategoriaId,
+                            Importe = numericImporte.Value
                         };
                         _dbContext.accesorios.Add(accesorio);
                         _dbContext.SaveChanges();
@@ -101,6 +103,7 @@ namespace RM_v2.Forms
                             acc.Codigo = textBoxCodigo.Text;
                             acc.CantidadBolsas = Convert.ToInt16(numericBolsas.Value);
                             acc.CantidadSuelta = Convert.ToInt16(numericSuletos.Value);
+                            acc.Importe = numericImporte.Value;
                         }
                         _dbContext.SaveChanges();
                     }
@@ -152,6 +155,7 @@ namespace RM_v2.Forms
                 textBoxNombre.Text = accesorios[indice].Nombre;
                 numericBolsas.Value = accesorios[indice].CantidadBolsas;
                 numericSuletos.Value = accesorios[indice].CantidadSuelta;
+                numericImporte.Value = accesorios[indice].Importe;
                 btnAgregar.Text = "Actualizar";
                 codigoEditado = accesorios[indice].Codigo;
             }
@@ -168,7 +172,7 @@ namespace RM_v2.Forms
             }
             else if (int.TryParse(textBoxBuscar.Text.Trim(), out n))
             {
-                accesorios = _dbContext.accesorios.Where(a => a.Categoria.Nombre == categoria.Nombre).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n).ToArray();
+                accesorios = _dbContext.accesorios.Where(a => a.Categoria.Nombre == categoria.Nombre).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n || b.Importe == n).ToArray();
                 if (accesorios is not null)
                 {
                     dataGridViewAccesorios.DataSource = null;
