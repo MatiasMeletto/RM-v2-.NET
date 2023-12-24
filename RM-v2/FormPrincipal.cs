@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using RM_v2.Forms;
 using RM_v2.Data.Models;
+using RM_v2.Objects;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Devices;
 
 namespace RM_v2
 {
@@ -17,10 +20,14 @@ namespace RM_v2
     {
         private Button btnActual = null;
         private Form formularioActivo = null;
+        private List<Button> categorias = new();
+        private Categoria c;
 
         public FormPrincipal()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false;
+            LoadForm();
         }
         private void btnSalida_Click(object sender, EventArgs e)
         {
@@ -28,64 +35,15 @@ namespace RM_v2
                 formularioActivo.Close();
             this.Close();
         }
-        private void btnBisagras_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnBisagras);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormBisagras());
-        }
-        private void btnEscuadras_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnEscuadras);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormEscuadras());
-        }
-        private void btnPicaportes_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnPicaportes);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormPicaportes());
-        }
-        private void btnRuedas_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnRuedas);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormRuedas());
-        }
-        private void btnPlasticos_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnPlasticos);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormPlasticos());
-        }
-        private void btnCerraduras_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnCerraduras);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormCerraduras());
-        }
-        private void btnOtros_Click(object sender, EventArgs e)
-        {
-            if (btnActual != null)
-                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
-            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, btnOtros);
-            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormOtros());
-        }
         private void panel1_Click(object sender, EventArgs e)
         {
+            using var _dbContext = new StockingDbContext();
             if (formularioActivo != null)
                 formularioActivo.Close();
             else
                 return;
-            panelDecorativo.Top = btnBisagras.Top;
-            panelDecorativo.Left = btnBisagras.Left;
-            panelDecorativo.Height = btnBisagras.Height + btnCerraduras.Height + btnEscuadras.Height + btnOtros.Height + btnPicaportes.Height + btnPlasticos.Height + btnRuedas.Height - 2;
+            panelDecorativo.Location = new Point(0,94);
+            panelDecorativo.Height = 50 * categorias.Count();
             if (btnActual != null)
                 btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
         }
@@ -94,6 +52,40 @@ namespace RM_v2
         {
             if (formularioActivo != null)
                 formularioActivo.Close();
+        }
+        public async void LoadForm()
+        {
+            using var _dbContext = new StockingDbContext();
+            categorias = ModuloPrincipal.CargarCategorias(panelSeleccion, await _dbContext.categorias.ToListAsync());
+            panelSeleccion.Controls.Clear();
+            panelDecorativo.Height = 50 * await _dbContext.categorias.CountAsync();
+            foreach (var categoria in categorias)
+            {
+                panelSeleccion.Controls.Add(categoria);
+                categoria.Click += new EventHandler(AbrirForm);
+            }
+        }
+        private async void AbrirForm(object sender, EventArgs e)
+        {
+            using var _dbContext = new StockingDbContext();
+            Button button = sender as Button;
+            c = await _dbContext.categorias.Where(c => c.Nombre == button.Text).SingleOrDefaultAsync();
+            if (btnActual != null)
+                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
+            btnActual = ModuloPrincipal.PreAbrir(panelDecorativo, btnActual, button);
+            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormAccesorios(c));
+        }
+
+        private async void btnCategorias_Click(object sender, EventArgs e)
+        {
+            using var _dbContext = new StockingDbContext();
+            formularioActivo = ModuloPrincipal.AbrirFormularioHijo(panelGrid, formularioActivo, new FormCategorias(this));
+            if (btnActual != null)
+                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
+            panelDecorativo.Location = new Point(0, 94);
+            panelDecorativo.Height = 50 * await _dbContext.categorias.CountAsync(); ;
+            if (btnActual != null)
+                btnActual = ModuloPrincipal.CambioColor(btnActual, btnActual, false);
         }
     }
 }

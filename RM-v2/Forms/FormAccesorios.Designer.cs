@@ -1,6 +1,6 @@
 ﻿namespace RM_v2.Forms
 {
-    partial class FormRuedas
+    partial class FormAccesorios
     {
         /// <summary>
         /// Required designer variable.
@@ -31,28 +31,28 @@
             components = new System.ComponentModel.Container();
             panelGrid = new Panel();
             textBoxBuscar = new TextBox();
-            dataGridViewRuedas = new DataGridView();
+            dataGridViewAccesorios = new DataGridView();
             codigoDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             nombreDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cantidadSueltaDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             cantidadBolsasDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             descripcionDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             accesorioBindingSource = new BindingSource(components);
-            label5 = new Label();
-            label4 = new Label();
-            numericSuletos = new NumericUpDown();
-            numericBolsas = new NumericUpDown();
-            label3 = new Label();
             label2 = new Label();
-            label1 = new Label();
-            textBoxDescripcion = new TextBox();
-            textBoxNombre = new TextBox();
             textBoxCodigo = new TextBox();
             btnLimpiar = new Button();
             btnEliminar = new Button();
             btnAgregar = new Button();
+            label5 = new Label();
+            label4 = new Label();
+            numericSuletos = new NumericUpDown();
+            numericBolsas = new NumericUpDown();
+            textBoxNombre = new TextBox();
+            textBoxDescripcion = new TextBox();
+            label3 = new Label();
+            label1 = new Label();
             panelGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewRuedas).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAccesorios).BeginInit();
             ((System.ComponentModel.ISupportInitialize)accesorioBindingSource).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericSuletos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericBolsas).BeginInit();
@@ -62,12 +62,12 @@
             // 
             panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelGrid.Controls.Add(textBoxBuscar);
-            panelGrid.Controls.Add(dataGridViewRuedas);
+            panelGrid.Controls.Add(dataGridViewAccesorios);
             panelGrid.Location = new Point(0, 277);
             panelGrid.Margin = new Padding(3, 4, 3, 4);
             panelGrid.Name = "panelGrid";
             panelGrid.Size = new Size(1089, 397);
-            panelGrid.TabIndex = 16;
+            panelGrid.TabIndex = 30;
             // 
             // textBoxBuscar
             // 
@@ -77,35 +77,35 @@
             textBoxBuscar.Location = new Point(52, 29);
             textBoxBuscar.Margin = new Padding(3, 4, 3, 4);
             textBoxBuscar.Name = "textBoxBuscar";
-            textBoxBuscar.Size = new Size(445, 34);
-            textBoxBuscar.TabIndex = 23;
+            textBoxBuscar.Size = new Size(441, 34);
+            textBoxBuscar.TabIndex = 27;
             textBoxBuscar.Text = "Buscar...";
             textBoxBuscar.TextChanged += textBoxBuscar_TextChanged;
             textBoxBuscar.Enter += textBoxBuscar_Enter;
             textBoxBuscar.Leave += textBoxBuscar_Leave;
             // 
-            // dataGridViewRuedas
+            // dataGridViewAccesorios
             // 
-            dataGridViewRuedas.AllowUserToAddRows = false;
-            dataGridViewRuedas.AllowUserToDeleteRows = false;
-            dataGridViewRuedas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridViewRuedas.AutoGenerateColumns = false;
-            dataGridViewRuedas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewRuedas.BackgroundColor = Color.White;
-            dataGridViewRuedas.BorderStyle = BorderStyle.None;
-            dataGridViewRuedas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewRuedas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewRuedas.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, cantidadSueltaDataGridViewTextBoxColumn, cantidadBolsasDataGridViewTextBoxColumn, descripcionDataGridViewTextBoxColumn });
-            dataGridViewRuedas.DataSource = accesorioBindingSource;
-            dataGridViewRuedas.Location = new Point(52, 71);
-            dataGridViewRuedas.Margin = new Padding(3, 4, 3, 4);
-            dataGridViewRuedas.Name = "dataGridViewRuedas";
-            dataGridViewRuedas.ReadOnly = true;
-            dataGridViewRuedas.RowHeadersWidth = 51;
-            dataGridViewRuedas.RowTemplate.Height = 24;
-            dataGridViewRuedas.Size = new Size(984, 266);
-            dataGridViewRuedas.TabIndex = 22;
-            dataGridViewRuedas.RowHeaderMouseDoubleClick += dataGridViewRuedas_RowHeaderMouseDoubleClick;
+            dataGridViewAccesorios.AllowUserToAddRows = false;
+            dataGridViewAccesorios.AllowUserToDeleteRows = false;
+            dataGridViewAccesorios.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridViewAccesorios.AutoGenerateColumns = false;
+            dataGridViewAccesorios.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewAccesorios.BackgroundColor = Color.White;
+            dataGridViewAccesorios.BorderStyle = BorderStyle.None;
+            dataGridViewAccesorios.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewAccesorios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewAccesorios.Columns.AddRange(new DataGridViewColumn[] { codigoDataGridViewTextBoxColumn, nombreDataGridViewTextBoxColumn, cantidadSueltaDataGridViewTextBoxColumn, cantidadBolsasDataGridViewTextBoxColumn, descripcionDataGridViewTextBoxColumn });
+            dataGridViewAccesorios.DataSource = accesorioBindingSource;
+            dataGridViewAccesorios.Location = new Point(52, 71);
+            dataGridViewAccesorios.Margin = new Padding(3, 4, 3, 4);
+            dataGridViewAccesorios.Name = "dataGridViewAccesorios";
+            dataGridViewAccesorios.ReadOnly = true;
+            dataGridViewAccesorios.RowHeadersWidth = 51;
+            dataGridViewAccesorios.RowTemplate.Height = 24;
+            dataGridViewAccesorios.Size = new Size(984, 266);
+            dataGridViewAccesorios.TabIndex = 26;
+            dataGridViewAccesorios.RowHeaderMouseDoubleClick += dataGridViewEscuadras_RowHeaderMouseDoubleClick;
             // 
             // codigoDataGridViewTextBoxColumn
             // 
@@ -151,60 +151,6 @@
             // 
             accesorioBindingSource.DataSource = typeof(Objects.Accesorio);
             // 
-            // label5
-            // 
-            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label5.AutoSize = true;
-            label5.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(898, 43);
-            label5.Name = "label5";
-            label5.Size = new Size(121, 19);
-            label5.TabIndex = 42;
-            label5.Text = "Cantidad suelta";
-            // 
-            // label4
-            // 
-            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(898, 110);
-            label4.Name = "label4";
-            label4.Size = new Size(124, 19);
-            label4.TabIndex = 41;
-            label4.Text = "Cantidad bolsas";
-            // 
-            // numericSuletos
-            // 
-            numericSuletos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericSuletos.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            numericSuletos.Location = new Point(898, 66);
-            numericSuletos.Margin = new Padding(3, 4, 3, 4);
-            numericSuletos.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericSuletos.Name = "numericSuletos";
-            numericSuletos.Size = new Size(141, 35);
-            numericSuletos.TabIndex = 40;
-            // 
-            // numericBolsas
-            // 
-            numericBolsas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            numericBolsas.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
-            numericBolsas.Location = new Point(898, 133);
-            numericBolsas.Margin = new Padding(3, 4, 3, 4);
-            numericBolsas.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
-            numericBolsas.Name = "numericBolsas";
-            numericBolsas.Size = new Size(138, 35);
-            numericBolsas.TabIndex = 39;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(52, 109);
-            label3.Name = "label3";
-            label3.Size = new Size(96, 19);
-            label3.TabIndex = 38;
-            label3.Text = "Descripcion";
-            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -212,39 +158,8 @@
             label2.Location = new Point(308, 39);
             label2.Name = "label2";
             label2.Size = new Size(70, 19);
-            label2.TabIndex = 37;
+            label2.TabIndex = 38;
             label2.Text = "Nombre";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(52, 39);
-            label1.Name = "label1";
-            label1.Size = new Size(63, 19);
-            label1.TabIndex = 36;
-            label1.Text = "Codigo";
-            // 
-            // textBoxDescripcion
-            // 
-            textBoxDescripcion.BorderStyle = BorderStyle.FixedSingle;
-            textBoxDescripcion.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxDescripcion.Location = new Point(52, 132);
-            textBoxDescripcion.Margin = new Padding(3, 4, 3, 4);
-            textBoxDescripcion.Multiline = true;
-            textBoxDescripcion.Name = "textBoxDescripcion";
-            textBoxDescripcion.Size = new Size(512, 78);
-            textBoxDescripcion.TabIndex = 35;
-            // 
-            // textBoxNombre
-            // 
-            textBoxNombre.BorderStyle = BorderStyle.FixedSingle;
-            textBoxNombre.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            textBoxNombre.Location = new Point(308, 62);
-            textBoxNombre.Margin = new Padding(3, 4, 3, 4);
-            textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(256, 34);
-            textBoxNombre.TabIndex = 34;
             // 
             // textBoxCodigo
             // 
@@ -254,7 +169,7 @@
             textBoxCodigo.Margin = new Padding(3, 4, 3, 4);
             textBoxCodigo.Name = "textBoxCodigo";
             textBoxCodigo.Size = new Size(250, 34);
-            textBoxCodigo.TabIndex = 33;
+            textBoxCodigo.TabIndex = 34;
             // 
             // btnLimpiar
             // 
@@ -263,7 +178,7 @@
             btnLimpiar.Margin = new Padding(3, 4, 3, 4);
             btnLimpiar.Name = "btnLimpiar";
             btnLimpiar.Size = new Size(128, 50);
-            btnLimpiar.TabIndex = 32;
+            btnLimpiar.TabIndex = 33;
             btnLimpiar.Text = "Limpiar ";
             btnLimpiar.UseVisualStyleBackColor = true;
             btnLimpiar.Click += btnLimpiar_Click;
@@ -276,7 +191,7 @@
             btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
             btnEliminar.Size = new Size(128, 51);
-            btnEliminar.TabIndex = 31;
+            btnEliminar.TabIndex = 32;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
             btnEliminar.Click += btnEliminar_Click;
@@ -289,12 +204,97 @@
             btnAgregar.Margin = new Padding(3, 4, 3, 4);
             btnAgregar.Name = "btnAgregar";
             btnAgregar.Size = new Size(128, 51);
-            btnAgregar.TabIndex = 30;
+            btnAgregar.TabIndex = 31;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // FormRuedas
+            // label5
+            // 
+            label5.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label5.AutoSize = true;
+            label5.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(898, 43);
+            label5.Name = "label5";
+            label5.Size = new Size(121, 19);
+            label5.TabIndex = 43;
+            label5.Text = "Cantidad suelta";
+            // 
+            // label4
+            // 
+            label4.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(898, 110);
+            label4.Name = "label4";
+            label4.Size = new Size(124, 19);
+            label4.TabIndex = 42;
+            label4.Text = "Cantidad bolsas";
+            // 
+            // numericSuletos
+            // 
+            numericSuletos.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericSuletos.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            numericSuletos.Location = new Point(898, 66);
+            numericSuletos.Margin = new Padding(3, 4, 3, 4);
+            numericSuletos.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericSuletos.Name = "numericSuletos";
+            numericSuletos.Size = new Size(141, 35);
+            numericSuletos.TabIndex = 41;
+            // 
+            // numericBolsas
+            // 
+            numericBolsas.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            numericBolsas.Font = new Font("Microsoft JhengHei UI", 13F, FontStyle.Regular, GraphicsUnit.Point);
+            numericBolsas.Location = new Point(898, 133);
+            numericBolsas.Margin = new Padding(3, 4, 3, 4);
+            numericBolsas.Maximum = new decimal(new int[] { 1000, 0, 0, 0 });
+            numericBolsas.Name = "numericBolsas";
+            numericBolsas.Size = new Size(138, 35);
+            numericBolsas.TabIndex = 40;
+            // 
+            // textBoxNombre
+            // 
+            textBoxNombre.BorderStyle = BorderStyle.FixedSingle;
+            textBoxNombre.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxNombre.Location = new Point(308, 62);
+            textBoxNombre.Margin = new Padding(3, 4, 3, 4);
+            textBoxNombre.Name = "textBoxNombre";
+            textBoxNombre.Size = new Size(256, 34);
+            textBoxNombre.TabIndex = 35;
+            // 
+            // textBoxDescripcion
+            // 
+            textBoxDescripcion.BorderStyle = BorderStyle.FixedSingle;
+            textBoxDescripcion.Font = new Font("Microsoft Sans Serif", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            textBoxDescripcion.Location = new Point(52, 132);
+            textBoxDescripcion.Margin = new Padding(3, 4, 3, 4);
+            textBoxDescripcion.Multiline = true;
+            textBoxDescripcion.Name = "textBoxDescripcion";
+            textBoxDescripcion.Size = new Size(512, 78);
+            textBoxDescripcion.TabIndex = 36;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(52, 109);
+            label3.Name = "label3";
+            label3.Size = new Size(96, 19);
+            label3.TabIndex = 39;
+            label3.Text = "Descripcion";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft JhengHei UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.Location = new Point(52, 39);
+            label1.Name = "label1";
+            label1.Size = new Size(63, 19);
+            label1.TabIndex = 37;
+            label1.Text = "Codigo";
+            // 
+            // FormAccesorios
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -315,13 +315,14 @@
             Controls.Add(btnEliminar);
             Controls.Add(btnAgregar);
             Controls.Add(panelGrid);
+            ForeColor = SystemColors.ControlText;
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
-            Name = "FormRuedas";
-            Text = "FormRuedas";
+            Name = "FormAccesorios";
+            Text = "FormEscuadras";
             panelGrid.ResumeLayout(false);
             panelGrid.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridViewRuedas).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewAccesorios).EndInit();
             ((System.ComponentModel.ISupportInitialize)accesorioBindingSource).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericSuletos).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericBolsas).EndInit();
@@ -330,15 +331,16 @@
         }
 
         #endregion
-        private BindingSource accesorioBindingSource;
+
         private Panel panelGrid;
         private TextBox textBoxBuscar;
-        private DataGridView dataGridViewRuedas;
+        private DataGridView dataGridViewAccesorios;
         private DataGridViewTextBoxColumn codigoDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn nombreDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cantidadSueltaDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn cantidadBolsasDataGridViewTextBoxColumn;
         private DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private BindingSource accesorioBindingSource;
         private Label label5;
         private Label label4;
         private NumericUpDown numericSuletos;

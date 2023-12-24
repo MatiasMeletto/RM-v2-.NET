@@ -1,4 +1,6 @@
-﻿namespace RM_v2
+﻿using RM_v2.Objects;
+
+namespace RM_v2
 {
     public class ModuloPrincipal
     {
@@ -16,8 +18,7 @@
         public static Button PreAbrir(Panel panelNav, Button act, Button btn)
         {
             panelNav.Height = btn.Height;
-            panelNav.Top = btn.Top;
-            panelNav.Left = btn.Left;
+            panelNav.Location = new Point(btn.Location.X,btn.Location.Y+94);
             return CambioColor(act, btn, true);
         }
         public static Form AbrirFormularioHijo(Panel panel, Form formAct, Form form)
@@ -32,6 +33,31 @@
             form.BringToFront();
             form.Show();
             return form;
+        }
+
+        public static List<Button> CargarCategorias(Panel panel,List<Categoria> categorias)
+        {
+            List<Button> list = new List<Button>();
+            foreach (Categoria c in categorias)
+            {
+                Button button = new Button
+                {
+                    Width = 173,
+                    Height = 50,
+                    Location = new Point(0, 50 * categorias.IndexOf(c)),
+                    FlatStyle = FlatStyle.Flat,
+                    BackColor = Color.DarkSlateGray,
+                    ForeColor = Color.FromArgb(192,255,255),
+                    Text = c.Nombre,
+                    Name = "Boton" + c.Nombre
+                    
+                };
+                button.FlatAppearance.BorderSize = 0;
+                button.BringToFront();
+                button.Show();
+                list.Add(button);
+            }
+            return list;
         }
     }
 }

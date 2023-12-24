@@ -28,20 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             panel1 = new Panel();
             panelSeleccion = new Panel();
             panelDecorativo = new Panel();
-            btnOtros = new Button();
-            btnCerraduras = new Button();
-            btnPlasticos = new Button();
-            btnRuedas = new Button();
-            btnPicaportes = new Button();
-            btnEscuadras = new Button();
-            btnBisagras = new Button();
             panelSalida = new Panel();
+            btnCategorias = new Button();
             btnSalida = new Button();
             panelGrid = new Panel();
-            panelSeleccion.SuspendLayout();
             panelSalida.SuspendLayout();
             SuspendLayout();
             // 
@@ -60,14 +54,6 @@
             panelSeleccion.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
             panelSeleccion.AutoScroll = true;
             panelSeleccion.BackColor = Color.DarkSlateGray;
-            panelSeleccion.Controls.Add(panelDecorativo);
-            panelSeleccion.Controls.Add(btnOtros);
-            panelSeleccion.Controls.Add(btnCerraduras);
-            panelSeleccion.Controls.Add(btnPlasticos);
-            panelSeleccion.Controls.Add(btnRuedas);
-            panelSeleccion.Controls.Add(btnPicaportes);
-            panelSeleccion.Controls.Add(btnEscuadras);
-            panelSeleccion.Controls.Add(btnBisagras);
             panelSeleccion.Location = new Point(0, 94);
             panelSeleccion.Margin = new Padding(3, 4, 3, 4);
             panelSeleccion.Name = "panelSeleccion";
@@ -78,128 +64,17 @@
             // 
             panelDecorativo.BackColor = Color.Azure;
             panelDecorativo.ForeColor = Color.Black;
-            panelDecorativo.Location = new Point(0, 0);
+            panelDecorativo.Location = new Point(0, 94);
             panelDecorativo.Margin = new Padding(3, 4, 3, 4);
             panelDecorativo.Name = "panelDecorativo";
-            panelDecorativo.Size = new Size(7, 350);
+            panelDecorativo.Size = new Size(7, 0);
             panelDecorativo.TabIndex = 10;
-            // 
-            // btnOtros
-            // 
-            btnOtros.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnOtros.FlatAppearance.BorderSize = 0;
-            btnOtros.FlatStyle = FlatStyle.Flat;
-            btnOtros.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnOtros.ForeColor = Color.FromArgb(192, 255, 255);
-            btnOtros.Location = new Point(0, 300);
-            btnOtros.Margin = new Padding(3, 4, 3, 4);
-            btnOtros.Name = "btnOtros";
-            btnOtros.Size = new Size(173, 50);
-            btnOtros.TabIndex = 9;
-            btnOtros.Text = "Otros";
-            btnOtros.UseVisualStyleBackColor = true;
-            btnOtros.Click += btnOtros_Click;
-            // 
-            // btnCerraduras
-            // 
-            btnCerraduras.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnCerraduras.FlatAppearance.BorderSize = 0;
-            btnCerraduras.FlatStyle = FlatStyle.Flat;
-            btnCerraduras.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnCerraduras.ForeColor = Color.FromArgb(192, 255, 255);
-            btnCerraduras.Location = new Point(0, 250);
-            btnCerraduras.Margin = new Padding(3, 4, 3, 4);
-            btnCerraduras.Name = "btnCerraduras";
-            btnCerraduras.Size = new Size(173, 50);
-            btnCerraduras.TabIndex = 8;
-            btnCerraduras.Text = "Cerraduras/Cierres";
-            btnCerraduras.UseVisualStyleBackColor = true;
-            btnCerraduras.Click += btnCerraduras_Click;
-            // 
-            // btnPlasticos
-            // 
-            btnPlasticos.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnPlasticos.FlatAppearance.BorderSize = 0;
-            btnPlasticos.FlatStyle = FlatStyle.Flat;
-            btnPlasticos.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPlasticos.ForeColor = Color.FromArgb(192, 255, 255);
-            btnPlasticos.Location = new Point(0, 200);
-            btnPlasticos.Margin = new Padding(3, 4, 3, 4);
-            btnPlasticos.Name = "btnPlasticos";
-            btnPlasticos.Size = new Size(173, 50);
-            btnPlasticos.TabIndex = 7;
-            btnPlasticos.Text = "Plasticos";
-            btnPlasticos.UseVisualStyleBackColor = true;
-            btnPlasticos.Click += btnPlasticos_Click;
-            // 
-            // btnRuedas
-            // 
-            btnRuedas.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnRuedas.FlatAppearance.BorderSize = 0;
-            btnRuedas.FlatStyle = FlatStyle.Flat;
-            btnRuedas.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnRuedas.ForeColor = Color.FromArgb(192, 255, 255);
-            btnRuedas.Location = new Point(0, 150);
-            btnRuedas.Margin = new Padding(3, 4, 3, 4);
-            btnRuedas.Name = "btnRuedas";
-            btnRuedas.Size = new Size(173, 50);
-            btnRuedas.TabIndex = 6;
-            btnRuedas.Text = "Ruedas";
-            btnRuedas.UseVisualStyleBackColor = true;
-            btnRuedas.Click += btnRuedas_Click;
-            // 
-            // btnPicaportes
-            // 
-            btnPicaportes.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnPicaportes.FlatAppearance.BorderSize = 0;
-            btnPicaportes.FlatStyle = FlatStyle.Flat;
-            btnPicaportes.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnPicaportes.ForeColor = Color.FromArgb(192, 255, 255);
-            btnPicaportes.Location = new Point(0, 100);
-            btnPicaportes.Margin = new Padding(3, 4, 3, 4);
-            btnPicaportes.Name = "btnPicaportes";
-            btnPicaportes.Size = new Size(173, 50);
-            btnPicaportes.TabIndex = 5;
-            btnPicaportes.Text = "Picaportes";
-            btnPicaportes.UseVisualStyleBackColor = true;
-            btnPicaportes.Click += btnPicaportes_Click;
-            // 
-            // btnEscuadras
-            // 
-            btnEscuadras.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnEscuadras.FlatAppearance.BorderSize = 0;
-            btnEscuadras.FlatStyle = FlatStyle.Flat;
-            btnEscuadras.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnEscuadras.ForeColor = Color.FromArgb(192, 255, 255);
-            btnEscuadras.Location = new Point(0, 50);
-            btnEscuadras.Margin = new Padding(3, 4, 3, 4);
-            btnEscuadras.Name = "btnEscuadras";
-            btnEscuadras.Size = new Size(173, 50);
-            btnEscuadras.TabIndex = 4;
-            btnEscuadras.Text = "Escuadras";
-            btnEscuadras.UseVisualStyleBackColor = true;
-            btnEscuadras.Click += btnEscuadras_Click;
-            // 
-            // btnBisagras
-            // 
-            btnBisagras.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            btnBisagras.FlatAppearance.BorderSize = 0;
-            btnBisagras.FlatStyle = FlatStyle.Flat;
-            btnBisagras.Font = new Font("Verdana", 8F, FontStyle.Regular, GraphicsUnit.Point);
-            btnBisagras.ForeColor = Color.FromArgb(192, 255, 255);
-            btnBisagras.Location = new Point(0, 0);
-            btnBisagras.Margin = new Padding(3, 4, 3, 4);
-            btnBisagras.Name = "btnBisagras";
-            btnBisagras.Size = new Size(173, 50);
-            btnBisagras.TabIndex = 3;
-            btnBisagras.Text = "Bisagras";
-            btnBisagras.UseVisualStyleBackColor = true;
-            btnBisagras.Click += btnBisagras_Click;
             // 
             // panelSalida
             // 
             panelSalida.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             panelSalida.BackColor = Color.DarkSlateGray;
+            panelSalida.Controls.Add(btnCategorias);
             panelSalida.Controls.Add(btnSalida);
             panelSalida.Location = new Point(0, 608);
             panelSalida.Margin = new Padding(3, 4, 3, 4);
@@ -207,11 +82,28 @@
             panelSalida.Size = new Size(173, 65);
             panelSalida.TabIndex = 3;
             // 
+            // btnCategorias
+            // 
+            btnCategorias.BackColor = Color.DarkSlateGray;
+            btnCategorias.Dock = DockStyle.Right;
+            btnCategorias.FlatAppearance.BorderSize = 0;
+            btnCategorias.FlatStyle = FlatStyle.Flat;
+            btnCategorias.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCategorias.ForeColor = Color.FromArgb(192, 255, 255);
+            btnCategorias.Image = (Image)resources.GetObject("btnCategorias.Image");
+            btnCategorias.Location = new Point(87, 0);
+            btnCategorias.Margin = new Padding(3, 4, 3, 4);
+            btnCategorias.Name = "btnCategorias";
+            btnCategorias.Size = new Size(86, 65);
+            btnCategorias.TabIndex = 1;
+            btnCategorias.UseVisualStyleBackColor = false;
+            btnCategorias.Click += btnCategorias_Click;
+            // 
             // btnSalida
             // 
             btnSalida.BackColor = Color.DarkSlateGray;
             btnSalida.BackgroundImageLayout = ImageLayout.None;
-            btnSalida.Dock = DockStyle.Fill;
+            btnSalida.Dock = DockStyle.Left;
             btnSalida.FlatAppearance.BorderSize = 0;
             btnSalida.FlatStyle = FlatStyle.Flat;
             btnSalida.Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
@@ -219,7 +111,7 @@
             btnSalida.Location = new Point(0, 0);
             btnSalida.Margin = new Padding(3, 4, 3, 4);
             btnSalida.Name = "btnSalida";
-            btnSalida.Size = new Size(173, 65);
+            btnSalida.Size = new Size(87, 65);
             btnSalida.TabIndex = 0;
             btnSalida.Text = "Salir";
             btnSalida.UseVisualStyleBackColor = false;
@@ -229,7 +121,7 @@
             // 
             panelGrid.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panelGrid.BackColor = Color.LightSteelBlue;
-            panelGrid.Location = new Point(173, 0);
+            panelGrid.Location = new Point(172, 0);
             panelGrid.Margin = new Padding(3, 4, 3, 4);
             panelGrid.Name = "panelGrid";
             panelGrid.RightToLeft = RightToLeft.No;
@@ -240,6 +132,7 @@
             // 
             AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(1262, 673);
+            Controls.Add(panelDecorativo);
             Controls.Add(panelGrid);
             Controls.Add(panelSalida);
             Controls.Add(panelSeleccion);
@@ -250,7 +143,6 @@
             Text = "Stock";
             WindowState = FormWindowState.Maximized;
             FormClosing += FormPrincipal_FormClosing;
-            panelSeleccion.ResumeLayout(false);
             panelSalida.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -259,17 +151,11 @@
 
         private Panel panel1;
         private Panel panelSeleccion;
-        private Button btnOtros;
-        private Button btnCerraduras;
-        private Button btnPlasticos;
-        private Button btnRuedas;
-        private Button btnPicaportes;
-        private Button btnEscuadras;
-        private Button btnBisagras;
         private Panel panelSalida;
         private Button btnSalida;
         private Panel panelGrid;
         private Panel panelDecorativo;
+        private Button btnCategorias;
     }
 }
 

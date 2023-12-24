@@ -5,9 +5,10 @@ using System.Data;
 
 namespace RM_v2.Forms
 {
-    public partial class FormOtros : Form
+    public partial class FormAccesorios : Form
     {
         Accesorio[]? accesorios;
+        Categoria? categoria;
         int indice = -1;
         bool editando = false;
         string codigoEditado;
@@ -15,11 +16,11 @@ namespace RM_v2.Forms
         private async void ActualizarGrilla()
         {
             using var _dbContext = new StockingDbContext();
-            accesorios = await _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Otro).ToArrayAsync();
+            accesorios = await _dbContext.accesorios.Where(a => a.Categoria.Nombre == categoria.Nombre).ToArrayAsync();
             if (accesorios is not null)
             {
-                dataGridViewOtro.DataSource = null;
-                dataGridViewOtro.DataSource = accesorios;
+                dataGridViewAccesorios.DataSource = null;
+                dataGridViewAccesorios.DataSource = accesorios;
             }
         }
         private void LimpiarCampos()
@@ -32,9 +33,10 @@ namespace RM_v2.Forms
             numericSuletos.Value = 0;
             indice = -1;
         }
-        public FormOtros()
+        public FormAccesorios(Categoria categoria)
         {
             InitializeComponent();
+            this.categoria = categoria;
             CheckForIllegalCrossThreadCalls = false;
             Task.Run(() =>
             {
@@ -42,7 +44,7 @@ namespace RM_v2.Forms
             });
         }
 
-        private void btnAgregar_Click(object sender, EventArgs e)
+        private async void btnAgregar_Click(object sender, EventArgs e)
         {
 
             List<string> Errores = ModuloForms.ValidarDatos(textBoxCodigo.Text, textBoxNombre.Text, textBoxDescripcion.Text, numericBolsas.Value, numericSuletos.Value);
@@ -75,7 +77,7 @@ namespace RM_v2.Forms
                             CantidadBolsas = Convert.ToInt16(numericBolsas.Value),
                             CantidadSuelta = Convert.ToInt16(numericSuletos.Value),
                             Descripcion = textBoxDescripcion.Text,
-                            Categoria = EnumCategorias.Otro,
+                            CategoriaId = (await _dbContext.categorias.Where(c => c.Nombre == categoria.Nombre).SingleOrDefaultAsync()).CategoriaId,
                         };
                         _dbContext.accesorios.Add(accesorio);
                         _dbContext.SaveChanges();
@@ -120,10 +122,10 @@ namespace RM_v2.Forms
 
             if (accesorios is not null && indice != -1)
             {
-                Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == dataGridViewOtro.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault();
+                Accesorio? acc = _dbContext.accesorios.Where(a => a.Codigo == dataGridViewAccesorios.CurrentRow.Cells[0].Value.ToString()).SingleOrDefault();
                 if (acc is not null)
                 {
-                    if (dataGridViewOtro.SelectedRows.Count != 1)
+                    if (dataGridViewAccesorios.SelectedRows.Count != 1)
                     {
                         MessageBox.Show("Debe seleccionar un elemento");
                     }
@@ -139,12 +141,12 @@ namespace RM_v2.Forms
             }
         }
 
-        private void dataGridViewOtro_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void dataGridViewEscuadras_RowHeaderMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (accesorios is not null)
             {
                 editando = true;
-                indice = dataGridViewOtro.SelectedRows[0].Index;
+                indice = dataGridViewAccesorios.SelectedRows[0].Index;
                 textBoxCodigo.Text = accesorios[indice].Codigo;
                 textBoxDescripcion.Text = accesorios[indice].Descripcion;
                 textBoxNombre.Text = accesorios[indice].Nombre;
@@ -166,21 +168,21 @@ namespace RM_v2.Forms
             }
             else if (int.TryParse(textBoxBuscar.Text.Trim(), out n))
             {
-                accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Otro).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n).ToArray();
+                accesorios = _dbContext.accesorios.Where(a => a.Categoria.Nombre == categoria.Nombre).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim()) || b.CantidadBolsas == n || b.CantidadSuelta == n).ToArray();
                 if (accesorios is not null)
                 {
-                    dataGridViewOtro.DataSource = null;
-                    dataGridViewOtro.DataSource = accesorios;
+                    dataGridViewAccesorios.DataSource = null;
+                    dataGridViewAccesorios.DataSource = accesorios;
                 }
 
             }
             else
             {
-                accesorios = _dbContext.accesorios.Where(a => a.Categoria == EnumCategorias.Otro).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim())).ToArray();
+                accesorios = _dbContext.accesorios.Where(a => a.Categoria.Nombre == categoria.Nombre).ToList().Where(b => b.Codigo.Contains(textBoxBuscar.Text.Trim().ToUpper()) || b.Nombre.Contains(textBoxBuscar.Text.Trim()) || b.Descripcion.Contains(textBoxBuscar.Text.Trim())).ToArray();
                 if (accesorios is not null)
                 {
-                    dataGridViewOtro.DataSource = null;
-                    dataGridViewOtro.DataSource = accesorios;
+                    dataGridViewAccesorios.DataSource = null;
+                    dataGridViewAccesorios.DataSource = accesorios;
                 }
             }
         }
