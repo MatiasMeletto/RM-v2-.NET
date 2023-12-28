@@ -56,7 +56,7 @@ namespace RM_v2
         public async void LoadForm()
         {
             using var _dbContext = new StockingDbContext();
-            categorias = ModuloPrincipal.CargarCategorias(panelSeleccion, await _dbContext.categorias.ToListAsync());
+            categorias = ModuloPrincipal.CargarCategorias(await _dbContext.categorias.ToListAsync());
             panelSeleccion.Controls.Clear();
             panelDecorativo.Height = 50 * await _dbContext.categorias.CountAsync();
             foreach (var categoria in categorias)

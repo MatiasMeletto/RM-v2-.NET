@@ -35,7 +35,7 @@ namespace RM_v2
             return form;
         }
 
-        public static List<Button> CargarCategorias(Panel panel,List<Categoria> categorias)
+        public static List<Button> CargarCategorias(List<Categoria> categorias)
         {
             List<Button> list = new List<Button>();
             foreach (Categoria c in categorias)
